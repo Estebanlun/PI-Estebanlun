@@ -1,46 +1,33 @@
-// const { Router } = require('express')
-// const router = Router();
+const { Router } = require('express')
+const router = Router();
 // const { Country, Activity } = require('../db.js');
-// const {apiInfo} = require('../controller/getApi')
-// apiInfo()
+const { getDbInfo } = require('../controller/getApiInfo')
 
 
-// router.get('/', async (req,res)=>{
-//     const {name} = req.query;
-//     if (name){
-        
-//     }else{
-//         const countries = await Country.findAll();
-//         res.send(countries.length > 0 ? countries : 'No se encontro')
-//     }
-// })
+router.get('/', async (req, res) => {
+    const name = req.query.name
+    let countriesTotal = await getDbInfo();
+    if (name) {
+        let countryName = await countriesTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
+        countryName.length ?
+            res.status(200).send(countryName) :
+            res.status(404).send('No esta el Pais');
+    } else {
+        res.status(200).send(countriesTotal);
+    }
+})
 
 
+router.get('/:id', async (req, res) => {
+    const { id } = req.params
+    let countriesTotal = await getDbInfo();
+    if (id) {
+        let countryId = await countriesTotal.filter(el => el.id == id)
+        countryId.length ?
+            res.status(200).send(countryId) :
+            res.status(404).send('No esta el Pais');
+    }
+})
 
-// router.get('/', async (req, res) => {
-//     let allCountries = await Country.findAll({});
-//     if (req.query.name) {
-//         let { name } = req.query
-//         Country.findAll({
-//             where: { name: name.charAt(0).toUpperCase() + name.slice(1) },
-//             include: Activity
-//         })
-//             .then(r => {
-//                 r.length > 0 ? res.json(r) : res.send('El país indicado no se encontró')
-//             })
-//     } else {
-//         res.send(allCountries);
-//     }
-
-// })
-
-// router.get('/:id', (req, res) => {
-//     Country.findAll({
-//         where: {id: req.params.id.toUpperCase()},
-//         include: Activity
-//     })
-//     .then(r=>res.json(r))
-// })
-
-// module.exports = router;
+module.exports = router;
 
