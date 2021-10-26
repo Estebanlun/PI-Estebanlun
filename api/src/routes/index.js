@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const axios = require('axios');
 const { Country, Activity } = require('../db.js');
+
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 // const countriesRouter = require('./Country');
@@ -17,11 +18,12 @@ const router = Router();
 async function getApiInfo() {
     const apiUrl = await axios.get('https://restcountries.com/v3/all')
     const apiInfo = await apiUrl.data.map((c) => {
+        // const copiDb = Country.findOrCreate(apiInfo)
         return {
-            id: c.ccn3,
+            id: c.cca3,
             name: c.name.common,
-            flag: c.flags,
-            continent: c.region,
+            flag: c.flags[0],
+            continent: c.continents[0],
             capital: c.capital,
             subregion: c.subregion,
             area: c.area,
@@ -29,34 +31,33 @@ async function getApiInfo() {
         }
     })
     // console.log(apiInfo[0].name)
-
     const guardar = () => {
-        for (let i = 0; i < apiInfo.length; i++) {
+        apiInfo.map(i => {
             Country.findOrCreate({
                 where: {
-                    name: apiInfo[i].name,
-                    // id: apiInfo[i].id,
-                    // flag: apiInfo[i].flags[i]
-                    // continent: apiInfo[i].region,
-                    // capital: apiInfo[i].capital,
-                    // subregion: apiInfo[i].subregion,
-                    // area: apiInfo[i].area,
-                    // population: apiInfo[i].population
-                }
-            })
-        }
+                    name: i.name,
+                    id: i.id,
+                },
+                defaults: {
+                    continent: i.continent,
+                    flag: i.flag,
+                    capital: i.capital,
+                    subregion: i.subregion,
+                    area: i.area,
+                    population: i.population
+                },
+                // include: {
+                //     model: Activity,
+                //     attributes: ['name', 'difficulty', 'duration', 'season'],
+                //     through: {
+                //         attributes: [],
+                //     }
+                // }
+            }).catch((err) => { console.log(err) });
+        })
     }
 
     guardar()
-
-    // const guardarCero = () => {
-    //     Country.findOrCreate({
-    //         where: {name: apiInfo[0].name, id: apiInfo[0].id}
-
-    //     })
-    // }
-    // guardarCero();
-
     return apiInfo;
 
 };
@@ -64,7 +65,8 @@ async function getApiInfo() {
 
 
 const getDbInfo = async () => {
-    return await Country.findAll({
+    await getApiInfo()
+    const aux = await Country.findAll({
         include: {
             model: Activity,
             attributes: ['name', 'difficulty', 'duration', 'season'],
@@ -73,13 +75,14 @@ const getDbInfo = async () => {
             }
         }
     })
+    return aux
 }
 
 const getAllCountries = async () => {
-    const apiInfo = await getApiInfo();
+    // const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();
-    const totalInfo = apiInfo.concat(dbInfo);
-    return totalInfo;
+    // const totalInfo = apiInfo.concat(dbInfo);
+    return dbInfo;
 }
 
 
