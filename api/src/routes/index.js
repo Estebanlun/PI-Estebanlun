@@ -28,7 +28,37 @@ async function getApiInfo() {
             population: c.population
         }
     })
+    // console.log(apiInfo[0].name)
+
+    const guardar = () => {
+        for (let i = 0; i < apiInfo.length; i++) {
+            Country.findOrCreate({
+                where: {
+                    name: apiInfo[i].name,
+                    // id: apiInfo[i].id,
+                    // flag: apiInfo[i].flags[i]
+                    // continent: apiInfo[i].region,
+                    // capital: apiInfo[i].capital,
+                    // subregion: apiInfo[i].subregion,
+                    // area: apiInfo[i].area,
+                    // population: apiInfo[i].population
+                }
+            })
+        }
+    }
+
+    guardar()
+
+    // const guardarCero = () => {
+    //     Country.findOrCreate({
+    //         where: {name: apiInfo[0].name, id: apiInfo[0].id}
+
+    //     })
+    // }
+    // guardarCero();
+
     return apiInfo;
+
 };
 
 
@@ -79,15 +109,15 @@ router.get('/countries/:id', async (req, res) => {
 })
 
 router.post('/activity', async (req, res) => {
-    const { id, name, difficulty, duration, season } = req.body
+    const { name, difficulty, duration, season } = req.body
     const createActivity = await Activity.create({
-        id,
         name,
         difficulty,
         duration,
         season
     })
-    res.status(201).send(createActivity)
+
+    res.status(200).send(createActivity)
 
 })
 
