@@ -53,5 +53,10 @@ const getDbInfo = async () => {
     return aux
 }
 
+const getActivities = async ()=>{
+    const get = await Activity.findAll()
+    return get;
+}
 
-module.exports = { getDbInfo };
+
+module.exports = { getDbInfo, getActivities };

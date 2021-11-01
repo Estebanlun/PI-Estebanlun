@@ -1,6 +1,7 @@
 const { Router } = require('express')
 const router = Router();
 const { Activity } = require('../db.js');
+const {getActivities} = require ('../controller/getApiInfo')
 
 router.post('/', async (req, res) => {
     const { name, difficulty, duration, season } = req.body
@@ -13,6 +14,11 @@ router.post('/', async (req, res) => {
 
     res.status(200).send(createActivity)
 
+})
+
+router.get('/', async (req, res) =>{
+    const activities = await getActivities()
+    res.status(200).send(activities)
 })
 
 module.exports = router;
