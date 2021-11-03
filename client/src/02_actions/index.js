@@ -1,5 +1,5 @@
 import axios from 'axios';
-import{FILTER_BY_CONTINENT, GET_COUNTRIES, ORDER_BY_NAME, SEARCH_COUNTRIES, GET_ACTIVITIES, POST_ACTIVITIES } from '../04_const/Const'
+import{RESET, ORDER_BY_POPULATION ,FILTER_BY_ACTIVITIES ,FILTER_BY_CONTINENT, GET_COUNTRIES, ORDER_BY_NAME, SEARCH_COUNTRIES, GET_ACTIVITIES, POST_ACTIVITIES, DETAIL } from '../04_const/Const'
 
 
 export function getCountries() {
@@ -38,9 +38,26 @@ export function filterCountriesByContinent (payload){
     }
 }
 
+
+export function filterCountriesByActivity (payload){
+    console.log(payload) 
+    return {
+        type: FILTER_BY_ACTIVITIES,
+        payload
+    }
+}   
+
+
 export function orderByName (payload) {
     return {
         type: ORDER_BY_NAME,
+        payload
+    }
+}
+
+export function orderByPopulation (payload) {
+    return {
+        type: ORDER_BY_POPULATION,
         payload
     }
 }
@@ -62,6 +79,26 @@ export function postActivities(payload){
             type: POST_ACTIVITIES,
             payload: json
         })
+    }
+}
+
+export function getDetail(id){
+    return async function (dispatch){
+        try {
+        let json = await axios.get('http://localhost:3001/countries/' + id);
+        return dispatch({
+            type: DETAIL,
+            payload: json.data
+            })
+        }catch(error){
+            console.error(error);
+        }
+    }   
+}
+
+export function restartDetail(){
+    return (dispatch)=>{
+        dispatch({type: RESET})
     }
 }
 

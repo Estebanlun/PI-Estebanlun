@@ -1,23 +1,15 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { getActivities } from "../02_actions";
+import React from "react";
+import {  useSelector } from "react-redux";
+import Activity from "../03_components/Activity"
 
-export default function ActivitiesList({ name, duration, season, difficulty }) {
-  const [activities, setActivities] = useState('')
-  const dispatch = useDispatch()
-  
-  function onClick(e){
-    e.preventDefault();
-    dispatch(getActivities(activities))
-    setActivities('')
+export default function ActivitiesList() {
+  const activities = useSelector((state) => state.activities);
+  return( <div> {
+      
+      activities?.map((acc) => {
+    return (
+        <Activity name={acc.name} duration={acc.duration} season={acc.season} difficulty={acc.difficulty} countriesId={acc.countriesId}/>
+      );
+  })}</div>)
 }
-  
-return (
-    <div>
-      <h2>{name}</h2>
-      <h2>{duration}</h2>
-      <h2>{season}</h2>
-      <h2>{difficulty}</h2>
-    </div>
-  );
-}
+
