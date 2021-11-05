@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Home from './03_components/HomeComponents/Home';
+import Home from './03_components/Home';
 import LandingPage from './03_components/LandingPage'
 import ActivityCreate from './03_components/ActivityCreate'
 import Detail from './03_components/Detail'

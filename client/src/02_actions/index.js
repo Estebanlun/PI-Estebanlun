@@ -25,6 +25,7 @@ export function searchCountries(search) {
                 payload: json.data
             });
         } catch (error) {
+            alert('El pais no fue encontrado')
             console.log(error)
         }
     }

@@ -1,17 +1,18 @@
 import React from "react";
+import '../05_styles/Paginado.css'
 
 export default function Paginado({countriesPerPage, countries, paginado}){
     const pageNumbrers = []
-    for (let i = 0; i <= Math.ceil(countries/countriesPerPage); i++) {
-        pageNumbrers.push(i+1)   
+    for (let i = 1; i <= Math.ceil(countries/countriesPerPage); i++) {
+        pageNumbrers.push(i)   
     }
     return(
-        <nav>
-            <ul>
+        <nav className='paginadoContainer'>
+            <ul className ='ul'>
                 {pageNumbrers && 
                 pageNumbrers.map(number =>(
                     <li key={number}>
-                        <a href onClick={()=>paginado(number)}> {number} </a>  
+                        <a className ='numeroPaginado' href onClick={()=>paginado(number)}> {number} </a>  
                     </li> 
                 ))}
             </ul>

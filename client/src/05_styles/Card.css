@@ -1,0 +1,18 @@
+.cardContainer{
+    background-color: #232423;
+    margin: 0 4px 0 4px;
+    width: 17vw;
+    height: 17rem;
+    margin: 1px;
+    font-size: large;
+    color: white;
+    
+    
+}
+
+.cardImg{
+    width: 5vw;
+    
+    /* height: 5vh; */
+    
+}
