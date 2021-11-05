@@ -22,7 +22,7 @@
     display: flex;
     flex-wrap: wrap;
     /* background-color: #c7c4cf; */
-    /* height: 77vh; */
+    height: 85%;
     justify-content: space-evenly;
 }
 
@@ -33,6 +33,7 @@
     background-color: #7A7A7B;
     color: #ffffff;
     font-size: large;
+    cursor: pointer;
 }
 .filterAndOrder:last-of-type{
     margin-right: 0.8rem;

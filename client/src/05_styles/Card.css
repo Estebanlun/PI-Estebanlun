@@ -1,18 +1,30 @@
-.cardContainer{
-    background-color: #232423;
-    margin: 0 4px 0 4px;
-    width: 17vw;
-    height: 17rem;
-    margin: 1px;
-    font-size: large;
-    color: white;
-    
-    
+.cardContainer {
+  background-color: #232423;
+  width: 17vw;
+  height: 17rem;
+  margin: 1px 0 2px 0;
+  display: flex;
+  font-size: large;
+  color: white;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.cardImg{
-    width: 5vw;
-    
-    /* height: 5vh; */
-    
+.infoConteiner {
+
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: flex-end;
+  height: 50%;
+}
+
+.cardImg {
+  width: 30%;
+  /* height: 15%; */
+}
+
+.content {
+  margin: 1rem 0 0 0;
 }
