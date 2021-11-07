@@ -55,10 +55,10 @@ export default function ActivityCreate() {
     console.log(input);
   }
 
-  function handleDelete(e) {
+  function handleDelete(i) {
     setInput({
       ...input,
-      countryId: input.countryId.filter((el) => el !== e),
+      countryId: input.countryId.filter((el) => el !== i),
     });
   }
 
@@ -91,7 +91,7 @@ export default function ActivityCreate() {
           <div className="activityTitle">
           </div>  
 
-          <form className="formActivity" onSubmit={e => handleSubmit(e)}>
+          <form className="formActivity" onSubmit={handleSubmit}>
             <span className='titleCreateActivity'> Crea una Actividad </span>
             <div className="inputActivities">
               <label className='labelActivity'></label>
@@ -137,7 +137,7 @@ export default function ActivityCreate() {
                 value={input.season}
                 onChange={(e) => handleChange(e)}
               >
-                <option className='op' > Estacion </option>
+                <option className='op' > Temporada </option>
                 <option className='op' value={INVIERNO}>Invierno</option>
                 <option className='op' value={VERANO}>Verano</option>
                 <option className='op' value={OTOÑO}>Otoño</option>
@@ -158,13 +158,15 @@ export default function ActivityCreate() {
 
             <div className="textArea">
               {input.countryId.map((country) => (
-                <div>
-                  <p>{country}</p>
-                  <button onClick={() => handleDelete(country)}>X</button>
+                <div className='countrieAndButton'>
+                  <input className='btnDelete' type='button' value='X' onClick={() => handleDelete(country)}/>
+                  <p className='pOfCountry'>{country}</p>
                 </div>
               ))}
             </div>
+            <div>
               <button className='btnActivity' type="submit">Crear Actividad</button>
+            </div>
           </form>
         </div>
       </div>

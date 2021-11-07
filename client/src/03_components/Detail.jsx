@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getDetail, restartDetail } from "../02_actions";
+import '../05_styles/Detail.css'
 
 
 export default function Detail (props){
@@ -17,7 +18,7 @@ export default function Detail (props){
     console.log(countriesDetail)
 
   return (
-    <div>{
+    <div className='loadingDetails'>{
         countriesDetail.length ?
             <div>
                 <img src={countriesDetail[0].flag} alt='Imagen no encontrada' width='250px' height='175px'/>
@@ -39,7 +40,8 @@ export default function Detail (props){
 
                   <Link to="/home"> Volver al inicio </Link>
 
-            </div> : <p>Loading...</p>
+            </div> : <p> Loading... </p>
+              
     }</div>
   );
 };
