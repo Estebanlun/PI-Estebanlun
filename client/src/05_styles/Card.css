@@ -8,7 +8,9 @@
   color: white;
   flex-direction: column;
   justify-content: space-evenly;
+  text-align: center;
   align-items: center;
+  padding-bottom: 16px;
 }
 
 .infoConteiner {

@@ -17,11 +17,10 @@ export default function Detail (props){
     },[dispatch, props.match.params.id])
 
     const countriesDetail = useSelector((state)=> state.detail)
-    console.log(countriesDetail)
 
   return (
 
-    <div className='detailE'>
+    <div key={countriesDetail.id} className='detailE'>
       <div>
       <NavBar/>
       </div>
@@ -32,16 +31,17 @@ export default function Detail (props){
                   <img className='objDetail' src={countriesDetail[0].flag} alt='Imagen no encontrada' width='250px' height='175px'/>
                   <h1 className='objDetail'>{countriesDetail[0].name}</h1>
                   <div className='obj2Detail'>
+                  <h2>Id: {countriesDetail[0].id}</h2>
                   <h2>Capital: {countriesDetail[0].capital}</h2>
                   <h2>Continente: {countriesDetail[0].continent}</h2>
                   <h2>Subregion: {countriesDetail[0].subregion}</h2>
-                  <h2>Area: {countriesDetail[0].area}</h2>
+                  <h2>Area: {countriesDetail[0].area} km2</h2>
                   <h2>Poblacion: {countriesDetail[0].population}</h2>
                   </div>
                   <div className='activitiesDetail'>  {countriesDetail[0].activities?.map(el=>{
                     return(
                       <div>
-                        <Link classname='linkDetail' to='/activities'>
+                        <Link className='linkDetail' to='/activities'>
                         <h2>Actividad</h2>
                         </Link>
                         <div className='obj3Detail'>

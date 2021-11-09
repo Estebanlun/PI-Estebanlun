@@ -57,7 +57,7 @@ export default function Home() {
 
   function handleFilterActivity(e) {
     dispatch(filterCountriesByActivity(e.target.value));
-    setCurrentPage(1);
+    // setCurrentPage(1);
   }
 
   function handleSort(e) {
@@ -104,7 +104,7 @@ export default function Home() {
         </select>
 
         <select className='filterAndOrder' onChange={(e) => handleFilterActivity(e)}>
-          <option value="actividades"> Actividades </option>
+          <option value="todos"> Actividades </option>
           {activities.map((v) => (
             <option value={v.name}>{v.name}</option>
           ))}

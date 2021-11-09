@@ -27,10 +27,15 @@ export default function rootReducer(state = initialState, action) {
 
         case FILTER_BY_ACTIVITIES:
             const filtredCountriesByActivities = state.allCountries
-            const continentFilteredBA = filtredCountriesByActivities.filter((g) => { return g.activities.find((g) => { return g.name === action.payload; }); });
-            return {
-                ...state,
-                countries: continentFilteredBA
+            const continentFilteredBA = filtredCountriesByActivities.filter((c) => { return c.activities.find((c) => { return c.name === action.payload; }); });
+
+            if (action.payload === 'todos') {
+                return {...state, countries: filtredCountriesByActivities}
+            } else {
+                return {
+                    ...state,
+                    countries: continentFilteredBA
+                }
             }
 
         case POST_ACTIVITIES:
@@ -43,6 +48,7 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 activities: action.payload
             }
+
         case DETAIL:
             return {
                 ...state,

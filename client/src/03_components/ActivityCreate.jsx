@@ -52,7 +52,6 @@ export default function ActivityCreate() {
         [e.target.name]: e.target.value,
       })
     );
-    console.log(input);
   }
 
   function handleDelete(i) {
@@ -68,6 +67,11 @@ export default function ActivityCreate() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (input.name === "" ||
+    input.duration === "" ||
+    input.difficulty === "" ||
+    input.season === "" ||
+    input.countryId.length === 0) return alert('Debe llenar los campos');
     dispatch(postActivities(input));
     alert("Actividad Creada");
     setInput({

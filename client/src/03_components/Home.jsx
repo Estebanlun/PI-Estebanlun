@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from './NavBar'
 import Cards from './Cards'
-import styles from '../05_styles/Home.css'
+import '../05_styles/Home.css'
 
 export default function Home() {
   return (
