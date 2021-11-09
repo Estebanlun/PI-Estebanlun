@@ -1,6 +1,5 @@
 const { Country, Activity } = require('../db.js');
-const axios = require('axios')
-// const sequalize = require ('sequalize')
+const axios = require('axios');
 
 async function getApiInfo() {
     const apiUrl = await axios.get('https://restcountries.com/v3/all')
@@ -38,7 +37,6 @@ async function getApiInfo() {
     return apiInfo;
 };
 
-
 const getDbInfo = async () => {
     await getApiInfo()
     const aux = await Country.findAll({
@@ -53,10 +51,9 @@ const getDbInfo = async () => {
     return aux
 }
 
-const getActivities = async ()=>{
+const getActivities = async () => {
     const get = await Activity.findAll()
     return get;
 }
-
 
 module.exports = { getDbInfo, getActivities };

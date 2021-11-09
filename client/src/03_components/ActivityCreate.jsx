@@ -29,7 +29,6 @@ export default function ActivityCreate() {
   const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
-    //estado local
     name: "",
     duration: "",
     difficulty: "",

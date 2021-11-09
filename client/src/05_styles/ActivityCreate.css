@@ -8,18 +8,6 @@
 }
 
 .activityCard {
-  /* background-color: aqua;
-  display: flex;
-  align-items: center;
-  width: 35rem;
-  height: 40rem;
-  padding: 2rem 2rem;
-  flex-direction: column;
-  margin: 0 0 0 0; */
-  /* position: absolute;
-  left: 50%;
-  top: 50%; */
-  /* transform: translate(-50%, -50%); */
   background-color: rgba(0, 0, 0, 0.89);
   border-radius: 3px;
   padding: 70px 100px;
@@ -133,64 +121,7 @@
   margin: 5px;
 }
 
-/* 
-.activityTitle {
-  display: flex;
-  justify-content: start;
-  margin-top: -2rem;
-}
-
-/* .activitiesInputs {
-  display: flex;
-  /* align-items: center; */
-/* justify-content: center; */
-/* align-items: stretch; */
-/* width: 100%; */
-/* height: 90%; */
-/* } 
-
-.formActivity {
-  background-color: gray;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.inputActivities {
-  background-color: brown;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: start;
-  font-size: large;
-}
-
-.seasonInput {
-  background-color: brown;
-  display: flex;
-  width: 100%;
-  height: 1.5rem;
-  font-size: large;
-  flex-direction: row;
-  align-content: stretch;
-  justify-content: start;
-  align-items: center;
- }*/
 .e{
     color: red;
     font-size: small;
 }
-
-/* .textArea {
-    width: 100%;
-    height: 150px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-  } */

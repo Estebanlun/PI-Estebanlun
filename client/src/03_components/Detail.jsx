@@ -8,7 +8,6 @@ import '../05_styles/Detail.css'
 
 
 export default function Detail (props){
-    console.log(props)
     const dispatch = useDispatch()
 
     useEffect(() => {

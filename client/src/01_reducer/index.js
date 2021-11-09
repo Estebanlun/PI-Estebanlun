@@ -30,7 +30,7 @@ export default function rootReducer(state = initialState, action) {
             const continentFilteredBA = filtredCountriesByActivities.filter((c) => { return c.activities.find((c) => { return c.name === action.payload; }); });
 
             if (action.payload === 'todos') {
-                return {...state, countries: filtredCountriesByActivities}
+                return { ...state, countries: filtredCountriesByActivities }
             } else {
                 return {
                     ...state,
@@ -93,7 +93,7 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case ORDER_BY_POPULATION:
-            let orderCountriesByPopulation = action.payload === HIGHER_POPULATION ? state.countries.sort((a, b) => {
+            let orderCountriesByPopulation = action.payload === HIGHER_POPULATION ? state.countries.sort((a, b)=>{
                 if (a.population < b.population) {
                     return 1;
                 }

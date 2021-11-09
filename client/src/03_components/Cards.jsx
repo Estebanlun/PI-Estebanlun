@@ -1,29 +1,8 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  getCountries,
-  filterCountriesByContinent,
-  filterCountriesByActivity,
-  orderByName,
-  orderByPopulation,
-  getActivities,
-} from "../02_actions/index";
-import {
-  LESS_POPULATION,
-  HIGHER_POPULATION,
-  ALL,
-  ALL_OF_AFRICA,
-  ALL_OF_N_AMERICA,
-  ALL_OF_S_AMERICA,
-  ALL_OF_ANTARCTICA,
-  ALL_OF_ASIA,
-  ALL_OF_EUROPE,
-  ALL_OF_OCEANIA,
-  ASCENDENTE,
-  DESCENDENTE,
-} from "../04_const/Const";
+import { getCountries, filterCountriesByContinent, filterCountriesByActivity, orderByName, orderByPopulation, getActivities} from "../02_actions/index";
+import { LESS_POPULATION, HIGHER_POPULATION, ALL, ALL_OF_AFRICA, ALL_OF_N_AMERICA, ALL_OF_S_AMERICA, ALL_OF_ANTARCTICA, ALL_OF_ASIA, ALL_OF_EUROPE, ALL_OF_OCEANIA, ASCENDENTE, DESCENDENTE} from "../04_const/Const";
 import Card from "./Card";
 import Paginado from "./Paginado";
 import "../05_styles/Cards.css";
@@ -57,7 +36,7 @@ export default function Home() {
 
   function handleFilterActivity(e) {
     dispatch(filterCountriesByActivity(e.target.value));
-    // setCurrentPage(1);
+    setCurrentPage(1);
   }
 
   function handleSort(e) {

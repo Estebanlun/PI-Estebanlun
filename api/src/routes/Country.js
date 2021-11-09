@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const router = Router();
-// const { Country, Activity } = require('../db.js');
+const { Country, Activity } = require('../db.js');
 const { getDbInfo } = require('../controller/getApiInfo')
 
 
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params
     let countriesTotal = await getDbInfo();
     if (id) {
-        let countryId = await countriesTotal.filter(el => el.id == id)
+        let countryId = await countriesTotal.filter(el => el.id == id.toUpperCase())
         countryId.length ?
             res.status(200).send(countryId) :
             res.status(404).send('No esta el Pais');

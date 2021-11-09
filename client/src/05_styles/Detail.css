@@ -8,7 +8,6 @@
   position: absolute;
   flex-direction: column;
   align-content: stretch;
-  /* justify-content: flex-start; */
 }
 
 .loading {

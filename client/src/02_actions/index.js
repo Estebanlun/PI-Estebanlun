@@ -76,11 +76,9 @@ export function getActivities() {
 
 export function postActivities(payload) {
     return async function (dispatch) {
-        // let json = 
         await axios.post('http://localhost:3001/activity', payload);
         return dispatch({
             type: POST_ACTIVITIES,
-            // payload: json
         })
     }
 }
