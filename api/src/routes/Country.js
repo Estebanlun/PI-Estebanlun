@@ -3,7 +3,6 @@ const router = Router();
 const { Country, Activity } = require('../db.js');
 const { getDbInfo } = require('../controller/getApiInfo')
 
-
 router.get('/', async (req, res) => {
     const name = req.query.name
     let countriesTotal = await getDbInfo();
@@ -16,7 +15,6 @@ router.get('/', async (req, res) => {
         res.status(200).send(countriesTotal);
     }
 })
-
 
 router.get('/:id', async (req, res) => {
     const { id } = req.params

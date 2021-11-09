@@ -22,11 +22,23 @@ describe('Country routes', () => {
   }));
   beforeEach(() => Country.sync({ force: true })
   .then(() => Country.create(country)));
+
   describe("GET /countries", () => {
     it("should get 200", () => agent.get("/countries").expect(200));
   });
-  describe("GET /countries", () => {
-    it("should get 200", () => agent.get("/countries?name=Argentina").expect(200));
+
+  describe("GET /countries?name=Pais", () => {
+    it("should get 200", () => agent.get("/countries?name=ArgEntina").expect(200));
   });
+
+  describe("GET /countries?name=Pais Fallido", () => {
+    it("should get 404", () => agent.get("/countries?name=fsffddf").expect(404));
+  })
+  
+  describe("GET /countries/:id", () => {
+    it("should get 200", () => agent.get("/countries/Arg").expect(200));
+  })
 });
+
+
 
