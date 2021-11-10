@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { postActivities, getActivities } from "../02_actions";
-import { INVIERNO, VERANO, OTOÑO, PRIMAVERA } from "../04_const/Const";
-import NavBar from "./NavBar";
-import "../05_styles/ActivityCreate.css";
+import { postActivities, getActivities } from "../../02_actions";
+import { INVIERNO, VERANO, OTOÑO, PRIMAVERA } from "../../04_const/Const";
+import NavBar from "../NavBar/NavBar";
+import "./ActivityCreate.css";
 
 function validate(input) {
   let errors = {};

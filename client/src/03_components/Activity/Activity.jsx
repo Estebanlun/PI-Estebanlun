@@ -1,5 +1,5 @@
 import React from 'react'
-import '../05_styles/ActivityList.css'
+import '../ActivityList/ActivitiesList'
 
 export default function Activity({ name, duration, season, difficulty, countryId }) {
   return (

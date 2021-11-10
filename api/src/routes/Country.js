@@ -4,7 +4,7 @@ const { Country, Activity } = require('../db.js');
 const { getDbInfo } = require('../controller/getApiInfo')
 
 router.get('/', async (req, res) => {
-    const name = req.query.name
+    const {name} = req.query
     let countriesTotal = await getDbInfo();
     if (name) {
         let countryName = await countriesTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))

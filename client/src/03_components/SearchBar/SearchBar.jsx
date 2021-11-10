@@ -1,7 +1,7 @@
 import { useState} from 'react'
 import { useDispatch } from 'react-redux';
-import { searchCountries } from '../02_actions/index';
-import '../05_styles/SearchBar.css'
+import { searchCountries } from '../../02_actions/index';
+import './SearchBar.css'
 
 export default function SearchBar() {
     const [search, setSearch] = useState('')
@@ -9,6 +9,7 @@ export default function SearchBar() {
     
     function onSubmit(e){
         e.preventDefault();
+        if (search.length === 0) return alert('Debe colocar un Pais');
         dispatch(searchCountries(search))
         setSearch('')
     }

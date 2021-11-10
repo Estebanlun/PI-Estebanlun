@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Home from './03_components/Home';
-import LandingPage from './03_components/LandingPage'
-import ActivityCreate from './03_components/ActivityCreate'
-import Detail from './03_components/Detail'
-import ActivitiesList from './03_components/ActivitiesList'
+import Home from './03_components/Home/Home';
+import LandingPage from './03_components/LandingPage/LandingPage'
+import ActivityCreate from './03_components/ActivityCreate/ActivityCreate'
+import Detail from './03_components/Details/Detail'
+import ActivitiesList from './03_components/ActivityCreate/ActivityCreate'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
