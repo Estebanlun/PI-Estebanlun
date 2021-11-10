@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.STRING,
       primaryKey:true,
-      // allowNull: true
+      allowNull: false
     },
     name: {
       type: DataTypes.STRING,
@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
     }, 
     flag: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     capital: {
       type: DataTypes.ARRAY(DataTypes.STRING),
