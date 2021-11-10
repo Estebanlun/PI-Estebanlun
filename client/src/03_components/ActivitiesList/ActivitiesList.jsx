@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Activity from "../Activity/Activity";
 import NavBar from "../NavBar/NavBar";
-import "./ActivityList";
+import "./ActivityList.css";
 
 export default function ActivitiesList() {
   const activities = useSelector((state) => state.activities);
